@@ -1538,7 +1538,7 @@ class AutoSchema(ViewInspector):
         elif is_list_serializer(serializer):
             return self._get_serializer_name(serializer.child, direction)
         else:
-            name = serializer.__class__.__name__
+            name = f"{serializer.__class__.__module__}.{serializer.__class__.__qualname__}"
 
         if name.endswith('Serializer'):
             name = name[:-10]
